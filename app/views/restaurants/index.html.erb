@@ -1,2 +1,17 @@
-<h1>Restaurants#index</h1>
-<p>Find me in app/views/restaurants/index.html.erb</p>
+<div class="container p-4">
+  <div class="d-flex justify-content-between">
+    <h1 class="text-primary">Restaurants</h1>
+    <h1><%= link_to "Add new restaurant", new_restaurant_path, class:"btn btn-primary"%></h1>
+  </div>
+  <hr>
+  <% @restaurants.each do |r| %>
+    <div class="d-flex justify-content-between">
+      <h3 class="text-success"><%= r.name %></h3>
+      <p><%= link_to "View reviews", restaurant_path(r), class: "btn btn-success"%></p>
+    </div>
+    <h6>Category: <%= r.category %></h6>
+    <h6>Phone: <%= r.phone_number %></h6>
+    <h6>Address: <%= r.address %></h6>
+    <hr>
+  <% end %>
+</div>

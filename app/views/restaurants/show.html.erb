@@ -1,2 +1,20 @@
-<h1>Restaurants#show</h1>
-<p>Find me in app/views/restaurants/show.html.erb</p>
+<div class="container p-4">
+  <div class="d-flex justify-content-between">
+    <h1 class="text-success"><%= @restaurant.name %></h1>
+    <p><%= link_to "Go back to restaurants", restaurants_path, class: "btn btn-success"%></p>
+  </div>
+  <hr>
+  <h6>Category: <%= @restaurant.category %></h6>
+  <h6>Phone: <%= @restaurant.phone_number %></h6>
+  <h6>Address: <%= @restaurant.address %></h6>
+  <hr>
+  <div class="d-flex justify-content-between">
+    <h2 class="text-warning">Reviews</h2>
+    <p><%= link_to "Add new review", new_restaurant_review_path(@restaurant), class: "btn btn-warning"%></p>
+  </div>
+  <% @restaurant.reviews.each do |review| %>
+    <h4>Rating: <%= review.rating %></h4>
+    <p><%= review.content %></p>
+    <hr>
+  <% end %>
+</div>
